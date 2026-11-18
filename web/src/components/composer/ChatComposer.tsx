@@ -484,7 +484,17 @@ export function ComposerEngineInput({
 }) {
   const engine = useContext(ComposerEngineContext);
   const load = useCodeMirrorComposerLoad();
-  const { onKeyDown, ref, rows, heightMode, inputId, className, ...rest } = input;
+  const {
+    onKeyDown,
+    ref,
+    rows,
+    heightMode,
+    inputId,
+    className,
+    mentionTokens,
+    commandToken,
+    ...rest
+  } = input;
   const handleKeyDown = (event: ComposerKeyboardEvent) =>
     handleComposerKeyDown(event, keyboard, onKeyDown);
   const setTextarea = useCallback(
@@ -499,6 +509,8 @@ export function ComposerEngineInput({
         ref={ref}
         inputId={inputId}
         heightMode={heightMode}
+        mentionTokens={mentionTokens}
+        commandToken={commandToken}
         onKeyDown={handleKeyDown}
       />
     );
